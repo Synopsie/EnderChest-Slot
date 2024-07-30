@@ -1,0 +1,8 @@
+# EnderchestSlots config.
+
+permission.slots:
+  4: # Le nombre ici correspond au nombre de slot accordé au joueur
+    permission: "slots.enderchest.4"
+    default: user
+
+enderchest.no.space: "§cVous n'avez plus de place dans votre enderchest."
