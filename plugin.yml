@@ -1,0 +1,6 @@
+name: EnderChest-Slot
+version: 1.0.0
+main: slots\Main
+src-namespace-prefix: slots
+api: 5.0.0
+author: Synopsie
