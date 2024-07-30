@@ -1,0 +1,27 @@
+{
+    "name": "synopsie/enderchest-slot",
+    "description": "Plugin enderchest-slot",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "synopsie/olymp-permission": "^1.0",
+        "synopsie/iriss-command": "^1.1"
+    },
+    "require-dev": {
+        "pocketmine/pocketmine-mp": "^5.17",
+        "friendsofphp/php-cs-fixer": "^3.60"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Synopsie\\EnderchestSlot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dumont-Julien",
+            "email": "dumontj357@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
