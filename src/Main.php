@@ -11,7 +11,7 @@
  *
  * @author Synopsie
  * @link https://github.com/Synopsie
- * @version 1.0.0
+ * @version 1.0.1
  *
  */
 
@@ -22,6 +22,7 @@ namespace slots;
 use olymp\PermissionManager;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
+use slots\listener\InventoryOpenListener;
 use slots\listener\InventoryTransactionListener;
 use slots\utils\EnderChestSlotCache;
 use slots\utils\EnderChestSlotInfo;
@@ -41,17 +42,17 @@ class Main extends PluginBase {
 	}
 
 	protected function onEnable() : void {
-		require $this->getFile() . 'vendor/autoload.php';
 
+		require $this->getFile() . 'vendor/autoload.php';
 		$this->enderchestCache   = new EnderChestSlotCache();
 		$this->permissionManager = new PermissionManager();
-
-		$config = $this->getConfig();
+		$config                  = $this->getConfig();
 		foreach ($config->get('permission.slots') as $key => $value) {
 			$this->registerEnderchestSlotPermission($value['permission'], $key, $value['default']);
 		}
 
 		$this->getServer()->getPluginManager()->registerEvents(new InventoryTransactionListener(), $this);
+		$this->getServer()->getPluginManager()->registerEvents(new InventoryOpenListener(), $this);
 		$this->getLogger()->info('§aPlugin Enderchest-Slots activé !');
 	}
 

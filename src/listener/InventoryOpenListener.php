@@ -11,7 +11,7 @@
  *
  * @author Synopsie
  * @link https://github.com/Synopsie
- * @version 1.0.0
+ * @version 1.0.1
  *
  */
 
@@ -41,7 +41,7 @@ class InventoryOpenListener implements Listener {
 			}
 
 			$config = Main::getInstance()->getConfig();
-			$item   = StringToItemParser::getInstance()->parse($config->getNested('item.id'))->setCustomName($config->getNested('item.name', ''));
+			$item   = StringToItemParser::getInstance()->parse($config->getNested('item.id'))->setCustomName($config->getNested('item.name', '§o§cBloqué'));
 
 			$currentContents = $inventory->getContents();
 			$availableSlots  = $enderchestSlotsCounts - count($currentContents);

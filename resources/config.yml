@@ -5,4 +5,6 @@ permission.slots:
     permission: "slots.enderchest.4"
     default: user
 
-enderchest.no.space: "§cVous n'avez plus de place dans votre enderchest."
+item:
+  id: "minecraft:barrier"
+  name: '§o§cBloqué'
