@@ -26,6 +26,7 @@ use slots\listener\InventoryOpenListener;
 use slots\listener\InventoryTransactionListener;
 use slots\utils\EnderChestSlotCache;
 use slots\utils\EnderChestSlotInfo;
+use sofia\Updater;
 
 class Main extends PluginBase {
 	use SingletonTrait;
@@ -44,7 +45,8 @@ class Main extends PluginBase {
 	protected function onEnable() : void {
 
 		require $this->getFile() . 'vendor/autoload.php';
-		$this->enderchestCache   = new EnderChestSlotCache();
+        Updater::checkUpdate('EnderChest-Slot', $this->getDescription()->getVersion(), 'Synopsie', 'EnderChest-Slot');
+        $this->enderchestCache   = new EnderChestSlotCache();
 		$this->permissionManager = new PermissionManager();
 		$config                  = $this->getConfig();
 		foreach ($config->get('permission.slots') as $key => $value) {

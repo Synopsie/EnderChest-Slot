@@ -131,7 +131,7 @@ Plugin enderchest-slot
 
 @author Synopsie
 @link https://github.com/Synopsie
-@version 1.0.1
+@version 1.0.2
 
 BODY,
             'location' => 'after_open'
