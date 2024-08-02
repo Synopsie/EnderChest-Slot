@@ -11,7 +11,7 @@
  *
  * @author Synopsie
  * @link https://github.com/Synopsie
- * @version 1.0.1
+ * @version 1.0.2
  *
  */
 
@@ -45,8 +45,8 @@ class Main extends PluginBase {
 	protected function onEnable() : void {
 
 		require $this->getFile() . 'vendor/autoload.php';
-        Updater::checkUpdate('EnderChest-Slot', $this->getDescription()->getVersion(), 'Synopsie', 'EnderChest-Slot');
-        $this->enderchestCache   = new EnderChestSlotCache();
+		Updater::checkUpdate('EnderChest-Slot', $this->getDescription()->getVersion(), 'Synopsie', 'EnderChest-Slot');
+		$this->enderchestCache   = new EnderChestSlotCache();
 		$this->permissionManager = new PermissionManager();
 		$config                  = $this->getConfig();
 		foreach ($config->get('permission.slots') as $key => $value) {
