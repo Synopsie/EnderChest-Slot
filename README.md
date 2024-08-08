@@ -1,6 +1,4 @@
-# EnderChest Plugin 📚
-
-EnderChestSlots is a simple plugin that allows you to configure the number of slots in the enderchest.
+# EnderChest-Slot Plugin 📚
 
 ## Features 🛠️
 
@@ -18,13 +16,9 @@ permission.slots:
     permission: "slots.enderchest.4"
     default: user
 
-enderchest.no.space: "§cVous n'avez plus de place dans votre enderchest."
+item:
+  id: "minecraft:barrier"
+  name: '§o§cBloqué'
 ```
-
-## License 📜
-
-Licensed under MIT. See [LICENSE](LICENSE) for details.
-
 ---
-
 ![EnderChest](enderchest-slot.png)
