@@ -1,5 +1,5 @@
 name: EnderChest-Slot
-version: 1.0.3
+version: 1.1.0
 main: slots\Main
 src-namespace-prefix: slots
 api: 5.0.0

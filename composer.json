@@ -5,7 +5,8 @@
     "require": {
         "php": "^8.1",
         "synopsie/olymp-permission": "^1.0",
-        "synopsie/sofia-updater": "^1.0"
+        "synopsie/sofia-updater": "^1.0",
+        "synopsie/iriss-command": "^2.1"
     },
     "require-dev": {
         "pocketmine/pocketmine-mp": "^5.17",

@@ -19,6 +19,17 @@ permission.slots:
 item:
   id: "minecraft:barrier"
   name: '§o§cBloqué'
+enderchest.name: '§8EnderChest de §e%player%'
+
+command:
+  name: enderchest
+  description: Permet d'ouvrir l'enderchest.
+  usage: /enderchest
+  aliases:
+    - ec
+  permission:
+    name: enderchest.use
+    default: operator # console, operator, user
 ```
 ---
 ![EnderChest](enderchest-slot.png)
