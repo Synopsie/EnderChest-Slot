@@ -11,7 +11,7 @@
  *
  * @author Synopsie
  * @link https://github.com/Synopsie
- * @version 1.0.3
+ * @version 1.1.0
  *
  */
 
@@ -30,6 +30,7 @@ use slots\listener\InventoryTransactionListener;
 use slots\utils\EnderChestSlotCache;
 use slots\utils\EnderChestSlotInfo;
 use sofia\Updater;
+use function file_exists;
 
 class Main extends PluginBase {
 	use SingletonTrait;
@@ -47,37 +48,36 @@ class Main extends PluginBase {
 
 	protected function onEnable() : void {
 
-        if (!file_exists($this->getFile() . 'vendor')) {
-            $this->getLogger()->error('Merci d\'installer une release du plugin et non le code source. (https://github.com/Synopsie/EnderChest-Slot/releases)');
-            $this->getServer()->getPluginManager()->disablePlugin($this);
-            return;
-        }
+		if (!file_exists($this->getFile() . 'vendor')) {
+			$this->getLogger()->error('Merci d\'installer une release du plugin et non le code source. (https://github.com/Synopsie/EnderChest-Slot/releases)');
+			$this->getServer()->getPluginManager()->disablePlugin($this);
+			return;
+		}
 
 		require $this->getFile() . 'vendor/autoload.php';
 		Updater::checkUpdate('EnderChest-Slot', $this->getDescription()->getVersion(), 'Synopsie', 'EnderChest-Slot');
-        IrissCommand::register($this);
+		IrissCommand::register($this);
 		$this->enderchestCache   = new EnderChestSlotCache();
 		$this->permissionManager = new PermissionManager();
 		$config                  = $this->getConfig();
 
-        $this->permissionManager->registerPermission(
-            $config->getNested('command.permission.name'),
-            'EnderChest',
-            $this->permissionManager->getType($this->permissionManager->getType($config->getNested('command.permission.default')))
-        );
+		$this->permissionManager->registerPermission(
+			$config->getNested('command.permission.name'),
+			'EnderChest',
+			$this->permissionManager->getType($this->permissionManager->getType($config->getNested('command.permission.default')))
+		);
 
-        $this->getServer()->getCommandMap()->register('EnderChest-Slot', new EnderChestCommand(
-            $config->getNested('command.name'),
-            $config->getNested('command.description'),
-            $config->getNested('command.usage'),
-            [],
-            $config->getNested('command.aliases')
-        ));
+		$this->getServer()->getCommandMap()->register('EnderChest-Slot', new EnderChestCommand(
+			$config->getNested('command.name'),
+			$config->getNested('command.description'),
+			$config->getNested('command.usage'),
+			[],
+			$config->getNested('command.aliases')
+		));
 
 		foreach ($config->get('permission.slots') as $key => $value) {
 			$this->registerEnderchestSlotPermission($value['permission'], $key, $value['default']);
 		}
-
 
 		$this->getServer()->getPluginManager()->registerEvents(new InventoryTransactionListener(), $this);
 		$this->getServer()->getPluginManager()->registerEvents(new InventoryOpenListener(), $this);
