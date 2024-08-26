@@ -11,7 +11,7 @@
  *
  * @author Synopsie
  * @link https://github.com/Synopsie
- * @version 1.1.0
+ * @version 1.1.1
  *
  */
 
@@ -29,7 +29,6 @@ use slots\listener\InventoryOpenListener;
 use slots\listener\InventoryTransactionListener;
 use slots\utils\EnderChestSlotCache;
 use slots\utils\EnderChestSlotInfo;
-use sofia\Updater;
 use function file_exists;
 
 class Main extends PluginBase {
@@ -55,7 +54,6 @@ class Main extends PluginBase {
 		}
 
 		require $this->getFile() . 'vendor/autoload.php';
-		Updater::checkUpdate('EnderChest-Slot', $this->getDescription()->getVersion(), 'Synopsie', 'EnderChest-Slot');
 		IrissCommand::register($this);
 		$this->enderchestCache   = new EnderChestSlotCache();
 		$this->permissionManager = new PermissionManager();

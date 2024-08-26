@@ -131,7 +131,7 @@ Ce plugin permet de limiter les slots disponible dans l'enderchest
 
 @author Synopsie
 @link https://github.com/Synopsie
-@version 1.1.0
+@version 1.1.1
 
 BODY,
             'location' => 'after_open'
